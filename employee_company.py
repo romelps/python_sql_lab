@@ -2,8 +2,8 @@ import psycopg2
 connection = psycopg2.connect(database="test_db")
 
 cursor = connection.cursor()
-# cursor.execute("SELECT * FROM companies")
-# print (cursor.fetchall())
+cursor.execute("SELECT * FROM companies")
+print (cursor.fetchall())
 
 cursor.execute("SELECT * FROM employees")
 print (cursor.fetchall())
@@ -25,18 +25,18 @@ print(cursor.fetchall())
 connection.commit()
 
 # Deleting data from companies table
-# delete_id = input("Enter company id to delete company: ")
-# cursor.execute("DELETE FROM companies WHERE id = %s", [delete_id])
-# print(cursor.fetchall())
-# connection.commit()
+delete_id = input("Enter company id to delete company: ")
+cursor.execute("DELETE FROM companies WHERE id = %s", [delete_id])
+print(cursor.fetchall())
+connection.commit()
 
 
 # Updating data in companies table
-# which_company_id = input("Enter company id to update company: ")
-# update_id = input("Enter new company id: ")
-# update_name = input("Enter new company name: ")
-# cursor.execute("UPDATE companies SET id = %s, name = %s WHERE id = %s", [update_id, update_name, which_company_id])
-# connection.commit()
+which_company_id = input("Enter company id to update company: ")
+update_id = input("Enter new company id: ")
+update_name = input("Enter new company name: ")
+cursor.execute("UPDATE companies SET id = %s, name = %s WHERE id = %s", [update_id, update_name, which_company_id])
+connection.commit()
 
 
 # Creating employees in table
@@ -49,15 +49,15 @@ cursor.execute("INSERT INTO employees (employee_id, name, comp_id, email) VALUES
 connection.commit()
 
 # Reading data from employees table
-# which_emp_id = input("Enter employee id to see employee: ")
-# cursor.execute("SELECT * FROM employees WHERE employee_id = %s", [which_emp_id])
-# print(cursor.fetchall())
-# connection.commit()
+which_emp_id = input("Enter employee id to see employee: ")
+cursor.execute("SELECT * FROM employees WHERE employee_id = %s", [which_emp_id])
+print(cursor.fetchall())
+connection.commit()
 
 # Deleting data from employees table
-# delete_emp_id = input("Enter employee id to delete employee: ")
-# cursor.execute("DELETE FROM employees WHERE employee_id = %s", [delete_emp_id])
-# connection.commit()
+delete_emp_id = input("Enter employee id to delete employee: ")
+cursor.execute("DELETE FROM employees WHERE employee_id = %s", [delete_emp_id])
+connection.commit()
 
 # Updating data in employees table
 which_emp_id = input("Enter employee id to update employee: ")
