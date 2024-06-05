@@ -70,5 +70,8 @@ cursor.execute("UPDATE employees SET name = %s, comp_id = %s, employee_id = %s, 
 connection.commit()
 
 
+# database code for table
+# SELECT * FROM employees FULL OUTER JOIN companies ON employees.comp_id = companies.id;
+
 cursor.close()
 connection.close()
